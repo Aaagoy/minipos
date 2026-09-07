@@ -1,7 +1,6 @@
 import {
     Boxes,
     CircleDollarSign,
-    // Icon,
     ReceiptText,
     TriangleAlert,
 } from "lucide-react";
