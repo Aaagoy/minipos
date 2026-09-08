@@ -1,0 +1,80 @@
+[debug] [2026-09-08T06:43:34.157Z] ----------------------------------------------------------------------
+[debug] [2026-09-08T06:43:34.160Z] Command:       D:\instalasiii\node.exe C:\Users\Labore 2.8\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-09-08T06:43:34.161Z] CLI Version:   15.29.0
+[debug] [2026-09-08T06:43:34.161Z] Platform:      win32
+[debug] [2026-09-08T06:43:34.161Z] Node Version:  v24.19.0
+[debug] [2026-09-08T06:43:34.161Z] Detected Agent: unknown
+[debug] [2026-09-08T06:43:34.161Z] Time:          Tue Sep 08 2026 13:43:34 GMT+0700 (Waktu Indonesia Barat)
+[debug] [2026-09-08T06:43:34.161Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Labore 2.8\fullstack\projek\minipos\minipos
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-09-08T06:44:56.498Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-09-08T06:44:56.499Z] > authorizing via signed-in user (yogap1252002@gmail.com)
+[debug] [2026-09-08T06:44:56.511Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:44:56.512Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:44:56.513Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2026-09-08T06:44:58.091Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-09-08T06:44:58.091Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] 
+=== Dataconnect Setup
+[info] i  dataconnect: ensuring required API firebasedataconnect.googleapis.com is enabled... 
+[debug] [2026-09-08T06:44:59.744Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:44:59.744Z] Checked if tokens are valid: true, expires at: 1788853382540
+[info] i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled... 
+[debug] [2026-09-08T06:44:59.745Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:44:59.745Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:44:59.746Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-09-08T06:44:59.746Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/firebasedataconnect.googleapis.com  x-goog-user-project=minipos-ea409
+[debug] [2026-09-08T06:44:59.747Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/sqladmin.googleapis.com [none]
+[debug] [2026-09-08T06:44:59.747Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/sqladmin.googleapis.com  x-goog-user-project=minipos-ea409
+[debug] [2026-09-08T06:45:01.601Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/sqladmin.googleapis.com 200
+[debug] [2026-09-08T06:45:01.601Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/sqladmin.googleapis.com [omitted]
+[warn] !  dataconnect: missing required API sqladmin.googleapis.com. Enabling now... 
+[debug] [2026-09-08T06:45:01.602Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:45:01.602Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:45:01.602Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/sqladmin.googleapis.com:enable [none]
+[debug] [2026-09-08T06:45:01.602Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/sqladmin.googleapis.com:enable  x-goog-user-project=minipos-ea409
+[debug] [2026-09-08T06:45:02.094Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-09-08T06:45:02.094Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/firebasedataconnect.googleapis.com [omitted]
+[warn] !  dataconnect: missing required API firebasedataconnect.googleapis.com. Enabling now... 
+[debug] [2026-09-08T06:45:02.094Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:45:02.094Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:45:02.094Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/firebasedataconnect.googleapis.com:enable [none]
+[debug] [2026-09-08T06:45:02.095Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/firebasedataconnect.googleapis.com:enable  x-goog-user-project=minipos-ea409
+[debug] [2026-09-08T06:45:03.135Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/sqladmin.googleapis.com:enable 200
+[debug] [2026-09-08T06:45:03.136Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/sqladmin.googleapis.com:enable [omitted]
+[debug] [2026-09-08T06:45:03.615Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/firebasedataconnect.googleapis.com:enable 200
+[debug] [2026-09-08T06:45:03.615Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/firebasedataconnect.googleapis.com:enable [omitted]
+[debug] [2026-09-08T06:45:13.657Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:45:13.657Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:45:13.658Z] >>> [apiv2][query] GET https://firebasedataconnect.googleapis.com/v1/projects/minipos-ea409/locations/-/services [none]
+[debug] [2026-09-08T06:45:15.543Z] <<< [apiv2][status] GET https://firebasedataconnect.googleapis.com/v1/projects/minipos-ea409/locations/-/services 200
+[debug] [2026-09-08T06:45:15.543Z] <<< [apiv2][body] GET https://firebasedataconnect.googleapis.com/v1/projects/minipos-ea409/locations/-/services {}
+[debug] [2026-09-08T06:46:58.227Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:46:58.227Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:46:58.228Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/cloudbilling.googleapis.com [none]
+[debug] [2026-09-08T06:46:58.228Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/cloudbilling.googleapis.com  x-goog-user-project=minipos-ea409
+[debug] [2026-09-08T06:46:59.730Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/cloudbilling.googleapis.com 200
+[debug] [2026-09-08T06:46:59.730Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/cloudbilling.googleapis.com [omitted]
+[debug] [2026-09-08T06:46:59.730Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:46:59.730Z] Checked if tokens are valid: true, expires at: 1788853382540
+[debug] [2026-09-08T06:46:59.731Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/cloudbilling.googleapis.com:enable [none]
+[debug] [2026-09-08T06:46:59.731Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/cloudbilling.googleapis.com:enable  x-goog-user-project=minipos-ea409
+[debug] [2026-09-08T06:47:00.191Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/cloudbilling.googleapis.com:enable 200
+[debug] [2026-09-08T06:47:00.192Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/minipos-ea409/services/cloudbilling.googleapis.com:enable [omitted]

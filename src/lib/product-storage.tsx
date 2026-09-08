@@ -1,4 +1,3 @@
-// import { getProducts } from "@/utils/product-storage";
 import type { ProductInput, Product } from "../types/product";
 const STORAGE_KEY = "minipos-products";
 
