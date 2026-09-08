@@ -8,7 +8,8 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { Input } from "@/components/ui/input";
 import type { Product } from "@/types/product";
 import { formatCurrency } from "@/utils/currency";
-import { getProducts, deleteProduct } from "@/lib/product-storage";
+import { deleteProduct, getProducts } from "@/services/product.service";
+// import { getProducts, deleteProduct } from "@/lib/product-storage";
 // import { router } from "next/client";
 // import { getProductById, updateProduct } from "@/services/product.service";
 
@@ -67,8 +68,6 @@ export default function ProductsPage(){
             </div>
         );
     }
-
-    
     
     
     
@@ -134,7 +133,7 @@ export default function ProductsPage(){
                                             <td className="px-5 py-4 font-bold text-slate-500">
                                                 {product.sku}
                                             </td>
-                                            <td className="px-5 py-4 font-semibold">
+                                            <td className="px-5 py-4 font-bold text-slate-900">
                                                 {formatCurrency(product.price)}
                                             </td>
                                             
@@ -169,21 +168,7 @@ export default function ProductsPage(){
                         </div>
                     </div>
                 )}
-           
-            {/* {sampleProducts.length === 0 && (
-                <EmptyState
-                title="Belum ada produk"
-                description="Tambahkan produk pertama untuk memulai transaksi POS."
-                />
-            )}
-
-            {sampleProducts.length > 0 && filtered.length === 0 && (
-                <div className="rounded-2xl bg-white p-8 text-center text-sm text-slate-500">
-                    <Search className="mx-auto mb-2"/>
-                    Produk tidak ditemukan
-                </div>
-            )} */}
-
+          
         {products.length === 0 && (
         <EmptyState
           title="Belum ada produk"

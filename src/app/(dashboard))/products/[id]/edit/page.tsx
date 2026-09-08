@@ -3,7 +3,8 @@ import { Product, ProductInput, } from "@/types/product";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { ProductForm } from "@/components/products/product-form";
-import { getProductById, updateProduct } from "@/lib/product-storage";
+import { getProductById, updateProduct } from "@/services/product.service";
+// import { getProductById, updateProduct } from "@/lib/product-storage";
 // import { router } from "next/client";
 
 export default function EditProductPage(){
@@ -46,7 +47,7 @@ export default function EditProductPage(){
     async function handleSubmit(input: ProductInput){
         if(!product)
             return;
-        await updateProduct(product.id, input);
+        await updateProduct (product.id, input);
         router.push("/products");
     }
 
