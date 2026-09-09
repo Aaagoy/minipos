@@ -1,22 +1,18 @@
 import {
     addDoc,
     collection,
-    deleteDoc,
     doc,
     getDoc,
     getDocs,
     orderBy,
     query,
     serverTimestamp,
-    updateDoc,
 } from "firebase/firestore";
 
 import { db } from "@/lib/firebase";
-// import { TransactionItem, PaymentMethod } from "@/types/transaction";
-import type { TransactionItem, PaymentMethod, Transaction } from "@/types/transaction";
+import type { TransactionItem, PaymentMethod} from "@/types/transaction";
 
 const transactionCollection = collection(db, "transactions");
-
 type CreateTransactionPayload = {
   items: TransactionItem[];
   total: number;

@@ -16,6 +16,7 @@ export default function NewTransactionsPage(){
     const [search, setSearch] = useState("");
     const [discount, setDiscount] = useState(0);
     const [paidAmount, setPaidAmount] = useState(0);
+    // const [changeAmount] = useState(0);
     const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("cash")
     const [loading, setLoading] = useState(true);
     const router = useRouter();
@@ -81,18 +82,9 @@ export default function NewTransactionsPage(){
         return Math.max(subtotal - discount, 0);
     }, [subtotal, discount]);
 
-    // function handleCheckout() {
-    //         if(cartItems.length === 0){
-    //             alert("Keranjang Masih Kosong");
-    //             return;
-    //         }
-    //         const payload = {
-    //             items: cartItems,
-    //             subtotal, discount, grandTotal, paymentMethod,
-    //         };
-    //         console.log("Checkout Payload", payload);
-    //         alert("Checkout Berhasil Disiapkan. Lihat Console.");
-    //     }
+    const changeAmount = useMemo(() => {
+        return Math.max(paidAmount - subtotal - discount, 0);
+    },[paidAmount, subtotal, discount]);
 
     async function handleCheckout() {
         const transactionId = await createTransaction({
@@ -107,18 +99,8 @@ export default function NewTransactionsPage(){
             paidAmount,
             paymentMethod,
         });
-        router.push("/transactions/" + transactionId)
-    }
-
-    // async function handleCheckout() {
-    //     const transactionId = await createTransaction({
-    //         items: cartItems,
-    //         total: grandTotal,
-    //         paidAmount,
-    //         paymentMethod,
-    //     });
-    //     router.push("/transactions/" + transactionId)
-    // }
+        router.push("/transactions/" + transactionId)        
+    }    
     
 return (
     <div className="space-y-6">
@@ -339,6 +321,27 @@ return (
                                 </span>
                             </div>
 
+                            {/* Bayar */}
+
+                            <div className="mt-5 block items-center justify-between border-t pt-4">
+
+                                <span className="font-bold text-black">
+                                    Jumlah Yang Dibayarkan
+                                </span>
+
+                                <Input
+                                    type="number"
+                                    min={0}
+                                    value={paidAmount}
+                                    onChange={(event) =>
+                                        setPaidAmount(
+                                            Number(event.target.value) || 0
+                                        )
+                                    }
+                                    placeholder="Masukkan Pembayaran"
+                                />                                
+
+                            </div>
 
                             {/* DISCOUNT */}
                             <div className="mt-4">
@@ -359,18 +362,26 @@ return (
                                 />
                             </div>
 
-
                             {/* GRAND TOTAL */}
+                            
                             <div className="mt-5 flex items-center justify-between border-t pt-4">
-
                                 <span className="font-bold text-black">
-                                    Grand Total
+                                    Total Bayar
                                 </span>
-
                                 <span className="text-xl font-bold text-indigo-600">
                                     {formatRupiah(grandTotal)}
                                 </span>
+                            </div>
 
+                            {/* Kembalian */}
+
+                            <div className="mt-5 flex items-center justify-between border-t pt-4">
+                                <span className="font-bold text-black">
+                                    Kembalian
+                                </span>
+                                <span className="text-xl font-bold text-indigo-600">
+                                    {formatRupiah(changeAmount)}
+                                </span>
                             </div>
 
 
