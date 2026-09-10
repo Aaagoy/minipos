@@ -7,8 +7,9 @@ import { getProducts } from "@/services/product.service";
 import type { Product } from "@/types/product";
 import type { CartItem, PaymentMethod } from "@/types/cart";
 import { formatRupiah } from "@/utils/format";
-import { useRouter } from "next/navigation";
-import { createTransaction } from "@/services/transaction.service";
+import { notFound, useRouter } from "next/navigation";
+import { createTransaction, getTransactionById } from "@/services/transaction.service";
+
 
 export default function NewTransactionsPage(){
     const [products, setProducts] = useState<Product[]>([]);
@@ -101,6 +102,23 @@ export default function NewTransactionsPage(){
         });
         router.push("/transactions/" + transactionId)        
     }    
+
+    type PageProps = {
+  params: { id: string };
+};
+
+//  async function TransactionDetailPage({
+//   params,
+// }: PageProps) {
+//   const transaction = await getTransactionById(params.id);
+
+//   if (!transaction) {
+//     notFound();
+//   }
+
+//   return <div>{/* invoice detail */}</div>;
+// }
+
     
 return (
     <div className="space-y-6">

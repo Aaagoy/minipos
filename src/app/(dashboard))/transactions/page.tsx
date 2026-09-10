@@ -64,7 +64,7 @@ export default function TransactionsPage(){
                     <td className="px-4 py-3 text-center">
                         <Link
                             href={"/transactions/" + transaction.id}
-                            className="font-medium underline"
+                            className="underline font-bold text-blue-700"
                         >
                             Cek Invoice
                         </Link>
