@@ -3,13 +3,13 @@
 import { useRouter } from "next/navigation";
 import { ProductForm } from "@/components/products/product-form";
 import type { ProductInput } from "@/types/product";
-import { addProduct } from "@/services/product.service";
+import { createProduct } from "@/services/product.service";
 
 
 export default function CreateProductPage(){
     const router = useRouter();        
     async function handleCreateProduct(input: ProductInput){
-        await addProduct(input);
+        await createProduct(input);
         router.push("/products");
     }
     // return <ProductForm

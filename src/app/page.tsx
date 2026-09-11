@@ -2,16 +2,8 @@
 // import { Header } from "@/components/layout/Header";
 // import { Sidebar } from "@/components/layout/Sidebar";
 
+import { redirect } from "next/navigation";
+
 export default function Home() {
-  return (
-    <>
-    <main>
-      <h1>
-        MiniPOS
-      </h1>
-      {/* <Sidebar/>
-      <Header/> */}
-    </main>
-    </>
-  );
+  redirect("/dashboard");
 }
