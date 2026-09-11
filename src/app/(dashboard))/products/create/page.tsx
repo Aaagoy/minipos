@@ -4,16 +4,19 @@ import { useRouter } from "next/navigation";
 import { ProductForm } from "@/components/products/product-form";
 import type { ProductInput } from "@/types/product";
 import { createProduct } from "@/services/product.service";
+import { useAuth } from "@/context/auth-context";
 
 
 export default function CreateProductPage(){
-    const router = useRouter();        
+    const router = useRouter();   
+    const {user} = useAuth();
+
     async function handleCreateProduct(input: ProductInput){
-        await createProduct(input);
+        if(!user) return;
+        await createProduct(user.uid, input);
         router.push("/products");
     }
-    // return <ProductForm
-    // onSubmit={handlesubmit}/>
+   
 
     return(
         <div className="max-w-2xl">

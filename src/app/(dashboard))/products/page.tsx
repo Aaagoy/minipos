@@ -163,13 +163,13 @@ export default function ProductsPage(){
                                                 <div className="flex justify-end gap-2">
                                                     <Link 
                                                     href={`/products/"${product.id}"/edit`}
-                                                    className="grid size-9 border-slate-600 hover:bg-slate-50 rounded-lg border px-3 py-2 text-sm bg-indigo-600 font-bold text-white" aria-label="Edit">
+                                                    className="grid size-9 border-slate-600 hover:bg-slate-400 rounded-lg border px-3 py-2 text-sm bg-indigo-600 font-bold text-white" aria-label="Edit">
                                                         <SquarePen size={16}/> 
                                                     </Link>
                                                     <button
                                                     type="button"
                                                     onClick={()=> handleDelete(product)}
-                                                     className="grid size-9 rounded-lg border border-rose-200 bg-red-600 px-3 py-2 text-sm font-bold text-rose-600 hover:bg-rose-50" aria-label="Hapus">
+                                                     className="grid size-9 rounded-lg border border-rose-200 bg-rose-600 px-3 py-2 text-sm font-bold text-white hover:bg-rose-300" aria-label="Hapus">
                                                         <Eraser size={16}/>
                                                     </button>
                                                 </div>

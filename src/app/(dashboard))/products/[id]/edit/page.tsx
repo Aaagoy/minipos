@@ -3,24 +3,17 @@ import { Product, ProductInput, } from "@/types/product";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { ProductForm } from "@/components/products/product-form";
-import { getProductById, updateProduct } from "@/services/product.service";
-// import { getProductById, updateProduct } from "@/lib/product-storage";
-// import { router } from "next/client";
+// import { updateProduct } from "@/services/product.service";
+import { getProductById } from "@/lib/product-storage";
+import { useAuth } from "@/context/auth-context";
+import { updateProduct } from "@/services/product.service";
 
 export default function EditProductPage(){
     const router = useRouter();
     const params = useParams<{ id: string }>();
-
+    const {user} = useAuth();
     const [product, setProduct] = useState<Product | null>(null);
     const [loading, setLoading] = useState(true);
-
-    // useEffect(() => {
-    //     if (params?.id) {            
-    //         const selectedProduct = getProductById(params.id);
-    //         setProduct(selectedProduct);
-    //     }
-    //     setLoading(false);
-    // }, [params.id]);
 
     useEffect(()=> {
         async function loadProduct(){
@@ -38,16 +31,12 @@ export default function EditProductPage(){
         return <p>Produk Tidak Ditemukan</p>
     }
     
-    // function handleSubmit(input: ProductInput){
-    //     if(!product) return;
-    //     updateProduct(product.id, input);
-    //     router.push("/products");
-    // }
-
     async function handleSubmit(input: ProductInput){
         if(!product)
             return;
-        await updateProduct (product.id, input);
+        if(!user)
+            return;
+        await updateProduct(user.uid, product.id, input);
         router.push("/products");
     }
 
@@ -60,7 +49,8 @@ export default function EditProductPage(){
                 Edit Produk
             </h1>
             <ProductForm
-            defaultValues={product}
+            // defaultValues={product}
+            initialData={product}
             submitLabel="Simpan Perubahan"
             onSubmit={handleSubmit}
             />
