@@ -1,9 +1,10 @@
-export type CartItem = {
-    productId: string;
-    name: string;
-    price: number;
-    qty: number;
-    subtotal: number;
-};
+// // export type CartItem = {
+// //     productId: string;
+// //     name: string;
+// //     sku: string;
+// //     price: number;
+// //     qty: number;
+// //     stock: number;
+// // };
 
-export type PaymentMethod = "cash" | "transfer" | "qris";
+// export type PaymentMethod = "cash" | "transfer" | "qris";

@@ -162,7 +162,7 @@ export default function ProductsPage(){
                                             <td className="px-5 py-4">
                                                 <div className="flex justify-end gap-2">
                                                     <Link 
-                                                    href={`/products/"${product.id}"/edit`}
+                                                    href={`/products/${product.id}/edit`}
                                                     className="grid size-9 border-slate-600 hover:bg-slate-400 rounded-lg border px-3 py-2 text-sm bg-indigo-600 font-bold text-white" aria-label="Edit">
                                                         <SquarePen size={16}/> 
                                                     </Link>

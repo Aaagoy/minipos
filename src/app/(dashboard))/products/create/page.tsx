@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { ProductForm } from "@/components/products/product-form";
-import type { ProductInput } from "@/types/product";
 import { createProduct } from "@/services/product.service";
 import { useAuth } from "@/context/auth-context";
 
@@ -10,12 +9,6 @@ import { useAuth } from "@/context/auth-context";
 export default function CreateProductPage(){
     const router = useRouter();   
     const {user} = useAuth();
-
-    async function handleCreateProduct(input: ProductInput){
-        if(!user) return;
-        await createProduct(user.uid, input);
-        router.push("/products");
-    }
    
 
     return(
@@ -32,7 +25,11 @@ export default function CreateProductPage(){
     
             <div className="mt-6 rounded-2xl border bg-white p-5 shadow-sm">
                 <ProductForm 
-                onSubmit={handleCreateProduct}
+                onSubmit={async (data) => {
+                    if(!user) return;
+                    await createProduct(user.uid, data);
+                    router.push("/products")
+                }}
                 submitLabel="Simpan"/>
             </div>
         </div>
