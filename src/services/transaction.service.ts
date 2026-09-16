@@ -119,3 +119,23 @@ export async function checkout(uid: string, input: CheckoutInput){
 
     return { transactionId: transactionRef.id, invoiceNumber, total};
 }
+
+export async function getTransactionsById(
+  uid: string,
+  transactionId: string,
+): Promise<SaleTransaction | null> {
+  const docRef = doc(db, "users", uid, "transactions", transactionId);
+  const snapshot = await getDoc(docRef);
+
+  if (!snapshot.exists()) {
+    return null;
+  }
+
+  const data = snapshot.data();
+
+  return {
+    id: snapshot.id,
+    ...data,
+    createdAt: data.createdAt?.toDate?.() ?? new Date(),
+  } as SaleTransaction;
+}
