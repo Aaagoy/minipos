@@ -51,7 +51,7 @@ export async function createTransaction(
 }
 
 export async function getTransactions(uid: string): Promise<SaleTransaction[]> {
-    const ref = collection(db, "users", uid, "transactins");
+    const ref = collection(db, "users", uid, "transactions");
     const snapshot = await getDocs(query(ref, orderBy("createdAt", "desc")));
     return snapshot.docs.map((item) => ({id: item.id, ...item.data()} as SaleTransaction))
 }

@@ -9,6 +9,7 @@ import { getTransactionsById } from "@/services/transaction.service";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
 import { formatDate } from "@/utils/format";
+import { useReactToPrint } from "react-to-print";
 
 export default function TransactionDetailPage() {
   const params = useParams<{ id: string }>();
@@ -63,10 +64,10 @@ export default function TransactionDetailPage() {
                 <div className="text-xs font-bold uppercase tracking-widest text-emerald-600">
                   Transaksi Berhasil
                 </div>
-                <h1 className="mt-1 text-2xl font-black">
+                <h1 className="mt-1 text-2xl font-black text-black">
                   {transaction.invoiceNumber}
                 </h1>
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-slate-950">
                   {formatDate(transaction.createdAt)}
                 </p>
               </div>
@@ -76,7 +77,7 @@ export default function TransactionDetailPage() {
             </Link>
           </div>
           <div className="py-6">
-            <h2 className="mb-4 font-black">Detail Produk</h2>
+            <h2 className="mb-4 font-blac text-black">Detail Produk</h2>
             <div className="grid gap-3">
               {transaction.items.map((item) => (
                 <div
@@ -84,13 +85,13 @@ export default function TransactionDetailPage() {
                   className="flex items-center justify-between gap-4 rounded-xl bg-slate-50 p-4"
                 >
                   <div>
-                    <div className="font-bold">{item.name}</div>
-                    <div className="mt-1 text-xs text-slate-500">
+                    <div className="font-bold text-black">{item.name}</div>
+                    <div className="mt-1 text-xs text-slate-950">
                       {item.sku} . {item.quantity} x{" "}
                       {formatCurrency(item.price)}
                     </div>
                   </div>
-                  <div className="font-black">
+                  <div className="font-black text-black">
                     {formatCurrency(item.price * item.quantity)}
                   </div>
                 </div>
@@ -101,21 +102,21 @@ export default function TransactionDetailPage() {
           <div className="grid gap-3 border-t border-slate-100 pt-6 text-sm">
             <div className="flex justify-between">
               <span className="text-slate-500">Metode Pembayaran</span>
-              <strong className="uppercase">{transaction.paymentMethod}</strong>
+              <strong className="uppercase text-black">{transaction.paymentMethod}</strong>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-500">Total</span>
-              <strong className="uppercase">{transaction.total}</strong>
+              <strong className="uppercase text-black">{transaction.total}</strong>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-500">Dibayar</span>
-              <strong className="uppercase">
+              <span className="text-slate-950">Dibayar</span>
+              <strong className="uppercase text-black">
                 {formatCurrency(transaction.paymentAmount)}
               </strong>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-500">Kembalian</span>
-              <strong className="uppercase">
+              <strong className="uppercase text-black">
                 {formatCurrency(transaction.change)}
               </strong>
             </div>

@@ -59,10 +59,12 @@ export function Sidebar(){
                 <nav className="gap-2 px-4 flex overflow-x-auto pb-4 lg:grid lg:pb-0">
                     {menu.map((item) => {
                         const Icon = item.icon;
-                        const active = pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href));
+                        const active = pathname === item.href || 
+                                    (item.href === "/dashboard" && 
+                                    pathname.startsWith(item.href));
                         return(
                             <Link
-                            key={item.href}
+                            key={item.href} 
                             href={item.href}
                             className={`flex shrink-0 items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition 
                             ${active ? "bg-indigo-600 text-white" : "text-slate-300 hover:bg-slate-900 hover:text-white"}
