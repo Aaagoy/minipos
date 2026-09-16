@@ -1,4 +1,5 @@
 import type { ProductInput, Product } from "../types/product";
+import { Timestamp } from "firebase/firestore";
 const STORAGE_KEY = "minipos-products";
 
 export function getProducts(): Product[] {
@@ -34,7 +35,7 @@ export function updateProduct(
         return{
             ...product,
             ...input,
-            updatedAt: new Date().toISOString(),
+            updatedAt: Timestamp.now(),
         };
     });
     saveProducts(updateProducts);
